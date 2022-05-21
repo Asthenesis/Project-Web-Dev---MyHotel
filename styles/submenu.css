@@ -64,3 +64,36 @@ html{
 #myBtn:hover {
   background-color: #555; /* Add a dark-grey background on hover */
 }
+
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+#profile-page{
+  
+  background-image: radial-gradient(#ccccdf 2px, transparent 2px);
+  background-size: 61px 61px;
+  background-color: #f7f7f7;
+  
+}
+
+
+
+#btn-bg-hover:hover{
+  background-color: white;
+  color: black;
+}
+
+#pills-profile-tab:hover{
+  transition: transform .2s;
+  transform: scale(1.2);
+}
+
+#pills-booking-tab:hover{
+  transition: transform .2s;
+  transform: scale(1.2);
+}
+

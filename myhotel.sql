@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2022 at 07:54 AM
+-- Generation Time: May 21, 2022 at 10:46 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -61,7 +61,8 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`id`, `name`, `phone`, `email`, `message`, `created_date`) VALUES
-(2, 'Angga', '08123131313', 'angga123@gmail.com', 'Apakah setiap kamar tersebut menyediakan perlengkapan mandi ?', '2022-05-21');
+(2, 'Angga', '08123131313', 'angga123@gmail.com', 'Apakah setiap kamar tersebut menyediakan perlengkapan mandi ?', '2022-05-21'),
+(3, 'Budi', '083213131321', 'bud.123@gmail.com', 'Apakah ada perlengkapan mandi di setiap kamar ?', '2022-05-21');
 
 -- --------------------------------------------------------
 
@@ -95,6 +96,13 @@ CREATE TABLE `profilepic` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `profilepic`
+--
+
+INSERT INTO `profilepic` (`id`, `picture`, `user_id`) VALUES
+(5, 'userpic/avatar3.jpg', 7);
+
 -- --------------------------------------------------------
 
 --
@@ -112,15 +120,16 @@ CREATE TABLE `reservation` (
   `check_out` date NOT NULL,
   `guests` varchar(10) NOT NULL,
   `payment_type` varchar(20) NOT NULL,
-  `payment_date` date NOT NULL DEFAULT current_timestamp()
+  `payment_date` date NOT NULL DEFAULT current_timestamp(),
+  `user_id` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `reservation`
 --
 
-INSERT INTO `reservation` (`id`, `name`, `province`, `city`, `address`, `phone`, `check_in`, `check_out`, `guests`, `payment_type`, `payment_date`) VALUES
-(1, 'Budi', 'Jakarta', 'Jakarta Selatan', 'Bintaro', '08328381381', '2022-05-22', '2022-05-24', '2', 'Credit Card', '2022-05-21');
+INSERT INTO `reservation` (`id`, `name`, `province`, `city`, `address`, `phone`, `check_in`, `check_out`, `guests`, `payment_type`, `payment_date`, `user_id`) VALUES
+(4, 'Alexander', 'Depok', 'Depok', 'Jl Raya Depok', '08231313131', '2022-05-24', '2022-05-26', '2', 'Debit', '2022-05-21', '6');
 
 -- --------------------------------------------------------
 
@@ -147,6 +156,18 @@ INSERT INTO `room` (`id`, `name`, `price`, `pic`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `id` int(11) NOT NULL,
+  `status` varchar(25) NOT NULL,
+  `user_id` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -167,7 +188,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `address`, `phone`, `email`, `password`, `created_date`, `role`) VALUES
 (1, 'Budi', 'Jl. Raya Bogor 5', '08323232321', 'budi.232@gmail.com', '$2y$10$As.uLbgGBrfWJ3zo4wTZFOgP1aPsBd/HwwF6qzKfx1kSKgJO5cjjq', '2022-05-20', 'user'),
-(6, 'Alexander', 'Jl. Raya Depok 5 No 19', '0832329322', 'alexander.123@gmail.com', '$2y$10$udD.cgnBcD153nt5CAMlMOO5tA4jI24OvywloUfnoZ0ZYuPyzIR72', '2022-05-20', 'user');
+(6, 'Alexander', 'Jl. Raya Depok 5 No 19', '0832329322', 'alexander.123@gmail.com', '$2y$10$udD.cgnBcD153nt5CAMlMOO5tA4jI24OvywloUfnoZ0ZYuPyzIR72', '2022-05-20', 'user'),
+(8, 'Angga', 'Jl. Raya Serpong 5', '082313131323', 'angga.1234@gmail.com', '$2y$10$t6d4jb6.KXclhWoQJgooQeT1mFBkoHFRgXNc1rqkrA8TE6DUBZCsu', '2022-05-21', 'user');
 
 --
 -- Indexes for dumped tables
@@ -203,13 +225,21 @@ ALTER TABLE `profilepic`
 -- Indexes for table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `room`
 --
 ALTER TABLE `room`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `users`
@@ -232,7 +262,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -244,13 +274,13 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `profilepic`
 --
 ALTER TABLE `profilepic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `room`
@@ -259,10 +289,16 @@ ALTER TABLE `room`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

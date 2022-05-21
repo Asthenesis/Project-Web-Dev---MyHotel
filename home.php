@@ -178,7 +178,7 @@ $row = $result -> fetch_assoc();
                             Take your mind off the day-to-day of home 
                             life and find a private paradise for yourself.
                             </p>
-                            <button type="button" class="btn btn-primary px-5 rounded-3" id="book-now-button">Explore</button></a>
+                            <button type="button" class="btn btn-primary px-5 rounded-3" id="book-now-button"><a href="reservations.php" class="text-light"> Explore</a></button></a>
                         </div>
                     </div>
                     <div class="col-6" data-aos="fade-zoom-left">
@@ -196,7 +196,7 @@ $row = $result -> fetch_assoc();
                             seems like time stands still watching the 
                             ocean. 
                             </p>
-                            <button type="button" class="btn btn-primary px-5 rounded-3" id="book-now-button">Explore</button></a>
+                            <button type="button" class="btn btn-primary px-5 rounded-3" id="book-now-button"><a href="reservations.php" class="text-light"> Explore</a></button></a>
                         </div>
                     </div>
                     <div class="col-6" data-aos="fade-zoom-left">

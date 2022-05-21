@@ -8,6 +8,6 @@ $delete = "DELETE FROM profilepic WHERE user_id = $id";
 $result = $conn -> query($delete);
 
 
-header("Location: profile.php");
+header("Location: profile.php?id=".$id);
 
 ?>

@@ -3,10 +3,10 @@
     session_start();
 
     //Remove all session variables
-    session_unset();
+    unset($_SESSION["adminid"]);
 
     //destroy the session
-    session_destroy();
+    // session_destroy();
 
     echo "<script type = 'text/javascript'>
     window.location.replace('login-admin.php');</script>";

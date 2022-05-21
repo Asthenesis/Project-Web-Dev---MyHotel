@@ -185,8 +185,8 @@ if ($result->num_rows > 0) {
                                         <tbody>
                                         <?php
                                               $count = 1;
-                                              $sql = "SELECT id, name, address, phone, check_in, check_out, guests, payment_type, payment_date
-                                              FROM reservation";
+                                              $sql = "SELECT id, name, address, phone, check_in, check_out, guests, payment_type, payment_date, user_id
+                                              FROM reservation WHERE user_id = '$_SESSION[id]'";
                                               $result = $conn->query($sql);
 
                                               $room = "SELECT id, name, price FROM room";
@@ -207,7 +207,7 @@ if ($result->num_rows > 0) {
                                                   $count++;
                                               }
                                               } else {
-                                              echo "<tr>Data not found </tr>";
+                                              echo "<tr>Make A Reservation Now ! </tr>";
                                               }
                                               
                                           ?>

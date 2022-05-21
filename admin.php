@@ -19,12 +19,12 @@
 
 include_once 'conn.php';
 session_start();
-    if(!isset($_SESSION['id'])){
+    if(!isset($_SESSION['adminid'])){
         header('Location: login-admin.php');
     }
 
-if(!isset($_SESSION['id']) == FALSE){
-    $sql = "SELECT id, email, password, role FROM admin WHERE id = '$_SESSION[id]'";
+if(!isset($_SESSION['adminid']) == FALSE){
+    $sql = "SELECT id, email, password, role FROM admin WHERE id = '$_SESSION[adminid]'";
 } else{
     $sql = "SELECT id, email, password, role FROM admin";
 }

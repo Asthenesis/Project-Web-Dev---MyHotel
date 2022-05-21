@@ -9,11 +9,11 @@ $password = $_POST['password'];
 $sql = "SELECT * FROM admin WHERE email='".$email."'";
 $result = $conn -> query($sql);
 
+$row = $result-> fetch_assoc();
 
-
-if($row = $result-> fetch_assoc()) {
+if($password === $row["password"]) {
     $_SESSION['email'] = $row['email'];
-    $_SESSION['id'] = $row['id'];
+    $_SESSION['adminid'] = $row['id'];
     $_SESSION['role'] = $row['role'];
 
     header('Location: admin.php');

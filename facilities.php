@@ -120,7 +120,7 @@ $row = $result -> fetch_assoc();
                         <div class="card">
                             <img src="gambar/gym.png" class="img-thumbnail card-img-top">
                             <div class="card-body">
-                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-plus-circle" ></i> View More Detail</button>
+                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"><i class="fas fa-plus-circle" ></i> View More Detail</button>
                                 <h2 class="text-end">The Gym</h2>
                             </div>
                         </div>
@@ -129,7 +129,7 @@ $row = $result -> fetch_assoc();
                         <div class="card">
                             <img src="gambar/poolside.png" class="img-thumbnail card-img-top">
                             <div class="card-body">
-                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-plus-circle"></i> View More Detail</button>
+                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"><i class="fas fa-plus-circle"></i> View More Detail</button>
                                 <h2 class="text-end">Poolside</h2>
                             </div>
                         </div>
@@ -138,7 +138,7 @@ $row = $result -> fetch_assoc();
                         <div class="card">
                             <img src="gambar/spa.jpg" class="img-thumbnail card-img-top">
                             <div class="card-body">
-                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-plus-circle"></i> View More Detail</button>
+                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"><i class="fas fa-plus-circle"></i> View More Detail</button>
                                 <h2 class="text-end">Spa</h2>
                             </div>
                         </div>
@@ -152,7 +152,7 @@ $row = $result -> fetch_assoc();
                         <div class="card">
                             <img src="gambar/swimming-pool.png" class="img-thumbnail card-img-top">
                             <div class="card-body">
-                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-plus-circle"></i> View More Detail</button>
+                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop4"><i class="fas fa-plus-circle"></i> View More Detail</button>
                                 <h2 class="text-end">Swimming Pool</h2>
                             </div>
                         </div>
@@ -161,7 +161,7 @@ $row = $result -> fetch_assoc();
                         <div class="card">
                             <img src="gambar/restaurant.png" class="img-thumbnail card-img-top">
                             <div class="card-body">
-                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-plus-circle"></i> View More Detail</button>
+                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop5"><i class="fas fa-plus-circle"></i> View More Detail</button>
                                 <h2 class="text-end">Restaurant</h2>
                             </div>
                         </div>
@@ -170,7 +170,7 @@ $row = $result -> fetch_assoc();
                         <div class="card">
                             <img src="gambar/laundry.jpg" class="img-thumbnail card-img-top">
                             <div class="card-body">
-                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-plus-circle"></i> View More Detail</button>
+                                <button type="button" id="tombol" class="btn btn-block float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop6"><i class="fas fa-plus-circle"></i> View More Detail</button>
                                 <h2 class="text-end">Laundry</h2>
                             </div>
                         </div>
@@ -181,6 +181,45 @@ $row = $result -> fetch_assoc();
         <!--end-->
 
         <!-- Modal -->
+
+        <?php 
+        $count = 1;
+        while($count <= 6) {
+            echo "<div class='modal fade' id='staticBackdrop$count' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+            <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                <h5 class='modal-title' id='staticBackdropLabel'>Description</h5>
+                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                </div>
+                <div class='modal-body'>";
+                if($count == 1) {
+                    echo"Near Poolside & Spa";
+                } elseif($count == 2) {
+                    echo"Near Swimming Pool";
+                } elseif ($count == 3) {
+                    echo"Near Gym & Receptionist";
+                } elseif ($count == 4){
+                    echo"Outside Near Poolside";
+                } elseif ($count == 5) {
+                    echo"Near Receptionists (Outdoor & Indoor Room)";
+                } elseif ($count == 6) {
+                    echo"Near Gym";
+                } 
+            echo"    </div>
+                <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                <button type=button' class='btn btn-primary'>Understood</button>
+                </div>
+            </div>
+            </div>
+        </div>";
+        $count++;
+
+        }
+            
+        
+        ?>
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
